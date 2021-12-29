@@ -1,0 +1,168 @@
+/* ============================== Google Fonts ================================== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Shizuru&display=swap');
+/* ================== Css Variables ===================== */
+:root{
+    /* =============== Colors ================ */
+    --button-color: hsl(9, 100%, 64%);
+    /*==================== Font Families ================== */
+    --h1-font: 'Shizuru', cursive;
+    --text-font: 'Open Sans Condensed', sans-serif;
+    /* ====================== Font Sizes ======================= */
+    --h1-font-size: 4rem;
+    --h2-font-size: 1.5rem;
+    --text-font-size: .75rem;
+    /* ====================== Font weights ===================== */
+    --bold: 900;
+    --semi-bold: 700:
+    --thin: 500;
+    /* ======================== Z-indexes ====================== */
+    --absolute-z-index: 10;
+    /* ===================== Margin Bottom ====================== */
+    --m-b: 1.5rem;
+    /* ============================ Header Height =========================== */
+    --header-height: 750px;
+}
+@media screen and (min-width: 600px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 5rem;
+        --h2-font-size: 2rem;
+        --text-font-size: 1.25rem;       
+    }
+}
+@media screen and (min-width: 1840px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 6rem;
+        --h2-font-size: 2.5rem;
+        --text-font-size: 1.75rem;
+        /* ================ Margin Bottom =============== */
+        --m-b: 5.5rem;
+    }
+}
+/* ============================ Basics =============================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: var(--text-font-size);
+    min-height: 100vh;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    display: inline-block;
+    font-size: var(--h1-font-size);
+    font-family: var(--h1-font);
+    font-weight: var(--bold);
+}
+p, h2{
+    font-family: var(--text-font);
+    color: #000;
+}
+h2{
+    font-size: var(--h2-font-size);
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+ul{
+    list-style: none;
+}
+button{
+    background-color: var(--button-color);
+}
+/* ====================== Reusable Classes ====================== */
+.section{
+    margin-bottom: var(--m-b);
+    width: 100%;
+    height: auto;
+}
+/* =============================== Navigation Bar ============================== */
+header{
+    width: 100%;
+    height: var(--header-height);
+    background-image: url(../pictures/sea\ from\ top.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+nav{
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--absolute-z-index);
+    padding: 1.5rem;
+}
+#menu-container{
+    width: 75%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+#menu-container li{
+    font-size: 1.2rem;
+    padding: .5rem 0;
+}
+#menu-container li a{
+    color: hsl(0, 0%, 93%);
+    font-weight: var(--bold);
+}
+#menu-container li a:hover{
+    color: hsl(0, 0%, 56%);
+}
+#slider-menu-open-container{
+    width: 50px;
+    height: 37px;
+    position: absolute;
+    right: 2rem;
+    cursor: pointer;
+    display: none;
+    transition: 2s;
+    transform: rotate(135deg);
+}
+#slider-menu-open-container:hover > *{
+    background-color: hsl(0, 0%, 56%);
+}
+.slider-menu-open-layers{
+    width: 100%;
+    height: 5px;
+    margin-bottom: .4rem;
+    background-color: #fff;
+    transition: .5s;
+}
+.slider-menu-open-layers{
+    margin-bottom: none;
+}
+@media screen and (max-width: 600px) {
+    #menu-container{
+        display: none;
+    }
+    #slider-menu-open-container{
+        display: inline-block;
+    }
+}
+/* These are the specified classes for menu open button layers for when the user cicks on them */
+.m-layer-animation{
+    position: absolute;
+    right: -1.5rem;
+    opacity: 0;
+}
+.t-layer-animation{
+    transform: rotate(-90deg);
+}
+.b-layer-animation{
+    position: absolute;
+    top: 0;
+}
