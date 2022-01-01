@@ -4,6 +4,7 @@
 :root{
     /* =============== Colors ================ */
     --button-color: hsl(9, 100%, 64%);
+    --button-hover-color: hsl(9, 100%, 44%);
     --text-hover-color: hsl(0, 0%, 56%); 
     /*==================== Font Families ================== */
     --h1-font: 'Shizuru', cursive;
@@ -19,7 +20,7 @@
     /* ======================== Z-indexes ====================== */
     --absolute-z-index: 10;
     /* ===================== Margin Bottom ====================== */
-    --m-b: 1.5rem;
+    --m-b: 3rem;
     /* ============================ Header Height =========================== */
     --header-height: 750px;
 }
@@ -80,6 +81,12 @@ ul{
 button{
     background-color: var(--button-color);
 }
+::-webkit-scrollbar{
+    width: .75rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
 /* ====================== Reusable Classes ====================== */
 .section{
     margin-bottom: var(--m-b);
@@ -97,6 +104,8 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    margin-bottom: var(--m-b);
 }
 #header-text{
     display: block;
@@ -110,6 +119,12 @@ header button{
     font-weight: var(--bold);
     text-transform: uppercase;
     letter-spacing: .2rem;
+}
+header button:hover,
+header button:hover a
+{
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
 }
 nav{
     width: 100%;
@@ -164,6 +179,82 @@ nav{
 .slider-menu-open-layers{
     margin-bottom: none;
 }
+/* ================================= Main ============================= */
+main{
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--m-b);
+}
+/* ================================= Countries Menu ============================= */
+#countries-container{
+    width: 100%;
+    height: 250px;
+    overflow: auto;
+}
+#country-imagr-container{
+    width: 2975px;
+    height: 100%;
+}
+.country{
+    width: 595px;
+    height: 100%;
+    background-color: #00f;
+    border: 2px solid #000;
+    float: left;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.country::after{
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+.country:hover::after{
+    backdrop-filter: blur(15px);
+}
+.country h2{
+    font-weight: var(--bold);
+    color: hsl(300, 100%, 20%);
+    font-size: var(--h1-font-size);
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 1;
+    transition: 1s;
+}
+.country:hover h2{
+    color: #fff;
+}
+#Bali{
+    background-image: url(../pictures/Bali\ attraction.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+#Costa-Rica{
+    background-image: url(../pictures/Costa\ Rica\ attraction.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#Italy{
+    background-image: url(../pictures/Italy\ attraction.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#Japan{
+    background-image: url(../pictures/Japan\ attraction.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#Iceland{
+    background-image: url(../pictures/Iceland\ attraction.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 /* ================================= Slider Menu ================================ */
 #slider-menu-container{
     position: fixed;
@@ -199,9 +290,6 @@ nav{
     }
     #slider-menu-open-container{
         display: inline-block;
-    }
-    #header-text{
-        transform: translateX(25%);
     }
 }
 @media screen and (min-width: 600px) {
