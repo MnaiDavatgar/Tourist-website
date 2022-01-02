@@ -21,7 +21,7 @@
                     <a href="#" class="menu-link">Home</a>
                 </li>
                 <li class="menu-items">
-                    <a href="#" class="menu-link">Countries</a>
+                    <a href="#" class="menu-link" id="menu-countries-item">Countries</a>
                 </li>
                 <li class="menu-items">
                     <a href="#" class="menu-link">Tours</a>
@@ -30,6 +30,26 @@
                     <a href="#" class="menu-link">Contact</a>
                 </li>
             </ul>
+            <div id="zoom-menu">
+                <ul id="zoom-menu-list">
+                    <li>
+                        <a href="#">Bali</a>
+                    </li>
+                    <li>
+                        <a href="#">Costa Rica</a>
+                    </li>
+                    <li>
+                        <a href="#">Italy</a>
+                    </li>
+                    <li>
+                        <a href="#">Japan</a>
+
+                    </li>
+                    <li>
+                        <a href="#">Iceland</a>
+                    </li>
+                </ul>
+            </div>
             <div id="slider-menu-open-container">
                 <div class="slider-menu-open-layers" id="top-layer"></div>
                 <div class="slider-menu-open-layers" id="middle-layer"></div>
@@ -40,8 +60,17 @@
                     <li class="slider-menu-item">
                         <a href="#" class="slider-menu-link">Home</a>
                     </li>
-                    <li class="slider-menu-item">
-                        <a href="#" class="slider-menu-link">Countries</a>
+                    <li class="slider-menu-item" id="sliderMenuZoomMenuContainer">
+                        <a href="#" class="slider-menu-link" id="countries-slider-menu-link">
+                            Countries<div id="down-arrow-container">
+                                <i class="uil uil-angle-up"></i>
+                            </div>
+                        </a>
+                        <a href="#">Bali</a>
+                        <a href="#">Costa Rica</a>
+                        <a href="#">Italy</a>
+                        <a href="#">Japan</a>
+                        <a href="#">Iceland</a>
                     </li>
                     <li class="slider-menu-item">
                         <a href="#" class="slider-menu-link">Tours</a>
@@ -60,7 +89,7 @@
     <main>
         <section id="countries-menu" class="section">
             <div id="countries-container">
-                <div id="country-imagr-container">
+                <div id="country-image-container">
                     <div id="Bali" class="country">
                         <h2>bali</h2>
                     </div>
@@ -78,6 +107,12 @@
                     </div>
                 </div>
             </div>
+             <div id="scroller-arrow" class="arrow">
+                <i class="uil uil-arrow-right"></i>
+            </div>
+            <div id="back-scroller-arrow" class="arrow">
+                <i class="uil uil-arrow-left"></i>
+            </div> 
         </section>
     </main>
     <footer></footer>

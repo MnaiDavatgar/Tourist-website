@@ -48,6 +48,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+html::-webkit-scrollbar{
+    width: .75rem;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
 body{
     font-size: var(--text-font-size);
     min-height: 100vh;
@@ -81,17 +87,14 @@ ul{
 button{
     background-color: var(--button-color);
 }
-::-webkit-scrollbar{
-    width: .75rem;
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--button-color);
-}
 /* ====================== Reusable Classes ====================== */
 .section{
     margin-bottom: var(--m-b);
     width: 100%;
     height: auto;
+}
+.clicked{
+    transform: rotate(180deg);
 }
 /* =============================== Navigation Bar ============================== */
 header{
@@ -179,6 +182,34 @@ nav{
 .slider-menu-open-layers{
     margin-bottom: none;
 }
+#zoom-menu{
+    width: 300px;
+    height: 500px;
+    background-color: hsl(120, 100%, 14%);
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    display: none; 
+}
+#zoom-menu-list li{
+    padding: 2rem;
+    border-bottom: 1px solid #fff;
+}
+#zoom-menu-list li:last-child{
+    border-bottom: none;
+}
+#zoom-menu-list li:hover{
+    background-color: hsl(120, 100%, 7%);
+}
+#zoom-menu-list li a{
+    font-size: var(--h2-font-size);
+     font-weight: var(--bold);
+}
+#zoom-menu-list li:hover a{
+    color: var(--text-hover-color);
+}
 /* ================================= Main ============================= */
 main{
     width: 100%;
@@ -190,8 +221,13 @@ main{
     width: 100%;
     height: 250px;
     overflow: auto;
+    position: relative;
+    scroll-behavior: smooth;
 }
-#country-imagr-container{
+#countries-container::-webkit-scrollbar{
+    background-color: transparent;
+}
+#country-image-container{
     width: 2975px;
     height: 100%;
 }
@@ -206,6 +242,7 @@ main{
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 .country::after{
     content: '';
@@ -255,6 +292,31 @@ main{
     background-repeat: no-repeat;
     background-position: center;
 }
+.arrow{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    position: absolute;
+    top: 900px;
+}
+#scroller-arrow{
+    right: 1rem;
+}
+#back-scroller-arrow{
+    left: 1rem;
+}
+.arrow i{
+    font-size: 3rem;
+    color: #fff;
+}
+.arrow:hover{
+    background-color: var(--button-hover-color);
+}
+.arrow:hover i{
+    color: var(--text-hover-color);
+}
 /* ================================= Slider Menu ================================ */
 #slider-menu-container{
     position: fixed;
@@ -266,7 +328,13 @@ main{
     height: 100vh;
     background-color: var(--button-color);
     transition: all .7s linear;
-    overflow: hidden;
+    overflow: auto;
+}
+#slider-menu-container::-webkit-scrollbar{
+    width: .75rem;
+}
+#slider-menu-container::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
 }
 #slider-list-container{
     display: flex;
@@ -283,6 +351,21 @@ main{
 .slider-menu-item a:hover{
     color: var(--text-hover-color);
 }
+#sliderMenuZoomMenuContainer{
+    height: 100px;
+    overflow: hidden;
+}
+#sliderMenuZoomMenuContainer a{
+    display: block;
+    padding: 2rem;
+}
+#down-arrow-container i{
+    font-size: var(--h2-font-size);
+    color: #fff;
+}
+#countries-slider-menu-link div{
+    display: inline-block;
+}
 /* =============================== Media Queries ================================= */
 @media screen and (max-width: 600px) {
     #menu-container{
@@ -290,6 +373,9 @@ main{
     }
     #slider-menu-open-container{
         display: inline-block;
+    }
+    #Costa-Rica h2 {
+        margin-left: -6.3rem;
     }
 }
 @media screen and (min-width: 600px) {
