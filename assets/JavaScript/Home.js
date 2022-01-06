@@ -43,18 +43,22 @@ countriesSliderMenuLink.addEventListener('click', () => {
     downArrowContainer.classList.toggle('clicked');
     if(sliderZoomMenu.style.height == '500px') {
     sliderZoomMenu.style.height = '100px';
+    sliderZoomMenu.style.overflow = 'hidden';
     } else{
         sliderZoomMenu.style.height = '500px';
+        sliderZoomMenu.style.overflow = 'auto';
     }
 });
-//Picture slider for Countries slider menu
+//Image slider for Countries slider menu
 
 let contCont = document.getElementById('countries-container');
 let scrollerArrow = document.getElementById('scroller-arrow');
 let backScrollerArrow = document.getElementById('back-scroller-arrow');
 var i = 0;
 var x;
+var y;
 
+//Making the image slider(because i didnt want to use % for images width)
 
 if(window.innerWidth > 600) {
     if(window.innerWidth > 1840) {
@@ -67,9 +71,17 @@ else{
     x = 2380;
 }
 
+if(window.innerWidth < 400){
+    y = 350;
+} else{
+    y = 595;
+}
+
+//Image slider arrows function
+
 scrollerArrow.addEventListener('click', () => {
 
-    Number(i += 595);
+    Number(i += y);
     if(i > x) {
         i = 0;
     }
@@ -78,11 +90,25 @@ scrollerArrow.addEventListener('click', () => {
 });
 
 backScrollerArrow.addEventListener('click', () => {
-    Number(i -= 595);
+    Number(i -= y);
     if(i < 0) {
         i = 2380;
     }
 
     contCont.scrollTo(i, 0);
 });
+
+//Scroll down animations
+
+window.onscroll = function()
+{trendCitiesTextAnimationActivator()};
+
+function trendCitiesTextAnimationActivator() {
+    let trendCitiesText = document.querySelectorAll('#trend-cities-container h2');
+
+    if(document.body.scrollTop > 900 || 
+        document.documentElement.scrollTop > 900) {
+            trendCitiesText.forEach(n => n.style.animationName = 'textLight');
+        }
+}
 

@@ -13,6 +13,7 @@
     --h1-font-size: 4rem;
     --h2-font-size: 3.5rem;
     --text-font-size: .75rem;
+    --countries-header-font-size: 4rem;
     /* ====================== Font weights ===================== */
     --bold: 900;
     --semi-bold: 700:
@@ -23,6 +24,11 @@
     --m-b: 3rem;
     /* ============================ Header Height =========================== */
     --header-height: 750px;
+}
+@media screen and (max-width: 400px) {
+    :root{
+        --countries-header-font-size: 3rem;
+    }
 }
 @media screen and (min-width: 600px) {
     :root{
@@ -208,7 +214,7 @@ nav{
     background-color: hsl(120, 100%, 7%);
 }
 #zoom-menu-list li a{
-    font-size: var(--h2-font-size);
+     font-size: var(--h2-font-size);
      font-weight: var(--bold);
 }
 #zoom-menu-list li:hover a{
@@ -266,7 +272,7 @@ main{
 .country h2{
     font-weight: var(--bold);
     color: hsl(300, 100%, 20%);
-    font-size: var(--h1-font-size);
+    font-size: var(--countries-header-font-size);
     letter-spacing: .5rem;
     text-transform: uppercase;
     position: absolute;
@@ -328,7 +334,7 @@ main{
 .arrow:hover i{
     color: var(--text-hover-color);
 }
-/* ================================= Slider Menu ================================ */
+/* ================================= Image slider Menu ================================ */
 #slider-menu-container{
     position: fixed;
     top: 0;
@@ -356,7 +362,7 @@ main{
 }
 .slider-menu-item a{
     font-family: 'Rock 3D', cursive;
-    font-size: var(--h2-font-size);
+    font-size: 2.5rem;
     font-weight: var(--bold);
 }
 .slider-menu-item a:hover{
@@ -385,7 +391,44 @@ main{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    position: relative;
     padding: 2rem;
+}
+#trending-cities h2,
+#countries-menu h2{
+    margin-left: .5rem;
+}
+#trend-cities-picture-container h2{
+    color: #000;
+    text-shadow: none;
+    text-align: center;
+    text-transform: uppercase;
+    animation-name: example;
+    animation-duration: 2300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+#trend-cities-picture-container::after{
+    content: '';
+    width: 100%;
+    height: 700px;
+    position: absolute;
+    z-index: -2;
+    right: 0;
+    top: 40px;
+    background-color: rgba(0, 0, 0, .85);
+}
+#trend-cities-picture-container::before{
+    content: '';
+    width: 100%;
+    height: 700px;
+    position: absolute;
+    z-index: -3;
+    top: 40px;
+    background-image: url(../pictures/city\ from\ top.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #trend-cities-container{
     margin-bottom: 6rem;
@@ -406,11 +449,33 @@ main{
     #Costa-Rica h2 {
         margin-left: -6.3rem;
     }
+
+}
+@media screen and (max-width: 400px) {
+    #countries-container{
+        height: 400px;
+    }
+    .country{
+        width: 350px;
+    }
+    #country-image-container{
+        max-width: 1750px;
+    }
+    #Costa-Rica h2{
+        margin-left: 1rem;
+    }
 }
 @media screen and (min-width: 600px) {
     header button{
         transform: scale(1.5);
     }
+}
+@media screen and (max-width: 800px) {
+    #trend-cities-picture-container::after,
+    #trend-cities-picture-container::before{
+        height: 1350px;
+    }
+
 }
 @media screen and (min-width: 1840px) {
     #countries-container{
@@ -433,7 +498,8 @@ main{
         height: 400px;
     }
 }
-/* These are the specified classes for menu open button layers for when the user cicks on them */
+/* These are the specified classes for menu open button layers for 
+when the user cicks on them */
 .m-layer-animation{
     transform: translateX(-4rem);
     opacity: 0;
@@ -443,4 +509,25 @@ main{
 }
 .b-layer-animation{
     transform: rotate(-45deg) translateY(-1rem);
+}
+/* ======================= Trend cities text animation ======================== */
+@keyframes textLight {
+    0%
+    {
+        color: #000;
+        text-shadow: none;
+    }
+    50%
+    {
+        color: #fff;
+        text-shadow: none;
+    }
+    100%
+    {
+        color: #fff;
+        text-shadow: 0 0 15px hsl(195, 96%, 45%),
+        0 0 20px hsl(195, 96%, 45%),
+        0 0 35px hsl(195, 96%, 45%),
+        0 0 50px hsl(195, 96%, 45%);
+    }
 }
