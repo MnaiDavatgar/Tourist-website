@@ -53,11 +53,24 @@ let contCont = document.getElementById('countries-container');
 let scrollerArrow = document.getElementById('scroller-arrow');
 let backScrollerArrow = document.getElementById('back-scroller-arrow');
 var i = 0;
+var x;
+
+
+if(window.innerWidth > 600) {
+    if(window.innerWidth > 1840) {
+        x = 595;
+    } else{
+        x = 1785;
+    }
+} 
+else{
+    x = 2380;
+}
 
 scrollerArrow.addEventListener('click', () => {
 
     Number(i += 595);
-    if(i > 2380) {
+    if(i > x) {
         i = 0;
     }
 
@@ -72,3 +85,4 @@ backScrollerArrow.addEventListener('click', () => {
 
     contCont.scrollTo(i, 0);
 });
+
