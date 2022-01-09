@@ -44,8 +44,10 @@ countriesSliderMenuLink.addEventListener('click', () => {
     if(sliderZoomMenu.style.height == '500px') {
     sliderZoomMenu.style.height = '100px';
     sliderZoomMenu.style.overflow = 'hidden';
+    sliderZoomMenu.style.backgroundColor = 'var(--button-color)';
     } else{
         sliderZoomMenu.style.height = '500px';
+        sliderZoomMenu.style.backgroundColor = 'hsl(9, 100%, 44%)';
         sliderZoomMenu.style.overflow = 'auto';
     }
 });
@@ -104,7 +106,7 @@ window.onscroll = function()
 {trendCitiesTextAnimationActivator()};
 
 function trendCitiesTextAnimationActivator() {
-    let trendCitiesText = document.querySelectorAll('#trend-cities-container h2');
+    let trendCitiesText = document.querySelectorAll('.trend-cities-container h2');
 
     if(document.body.scrollTop > 900 || 
         document.documentElement.scrollTop > 900) {

@@ -96,6 +96,18 @@ ul{
 button{
     background-color: var(--button-color);
 }
+.section-header-container h2{
+    color: seagreen;
+    background-color: #fff;
+    padding: 1rem;
+    border-top: 2px solid seagreen;
+    border-bottom: 2px solid seagreen;
+    transition: all .3s linear;
+}
+.section-header-container h2:hover{
+    color: #fff;
+    background-color: seagreen;
+}
 /* ====================== Reusable Classes ====================== */
 .section{
     margin-bottom: var(--m-b);
@@ -104,6 +116,17 @@ button{
 }
 .clicked{
     transform: rotate(180deg);
+}
+.section-header-container{
+    width: 100%;
+    height: auto;
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#countries-menu .section-header-container{
+    margin-bottom: 3.5rem;
 }
 /* =============================== Navigation Bar ============================== */
 header{
@@ -128,14 +151,35 @@ header button{
     height: 2.5rem;
     border: none;
     border-radius: 20px;
+    position: relative;
+}
+header button a {
     font-weight: var(--bold);
     text-transform: uppercase;
     letter-spacing: .2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    z-index: 2;
 }
-header button:hover,
+header button::before{
+    content: '';
+    width: 0;
+    height: inherit;
+    transition: all 180ms linear;
+    border-radius: 20px;
+    background-color: var(--button-hover-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+header button:hover::before{
+    width: inherit;
+}
 header button:hover a
 {
-    background-color: var(--button-hover-color);
     color: var(--text-hover-color);
 }
 nav{
@@ -316,7 +360,7 @@ main{
     background-color: var(--button-color);
     position: absolute;
     z-index: var(--absolute-z-index);
-    top: 900px;
+    top: 1000px;
 }
 #scroller-arrow{
     right: 1rem;
@@ -372,6 +416,12 @@ main{
     height: 100px;
     overflow: hidden;
 }
+#sliderMenuZoomMenuContainer::-webkit-scrollbar{
+    width: .2rem;
+}
+#sliderMenuZoomMenuContainer::-webkit-scrollbar-thumb{
+    background-color: hsl(30, 100%, 9%);
+}
 #sliderMenuZoomMenuContainer a{
     display: block;
     padding: 2rem;
@@ -384,6 +434,9 @@ main{
     display: inline-block;
 }
 /* ========================== Trending Cities ============================ */
+#trending-cities{
+    margin-bottom: 34rem;
+}   
 #trend-cities-picture-container{
     width: 100%;
     height: 300px;
@@ -393,10 +446,7 @@ main{
     align-items: center;
     position: relative;
     padding: 2rem;
-}
-#trending-cities h2,
-#countries-menu h2{
-    margin-left: .5rem;
+    margin-top: 1rem;
 }
 #trend-cities-picture-container h2{
     color: #000;
@@ -417,6 +467,7 @@ main{
     right: 0;
     top: 40px;
     background-color: rgba(0, 0, 0, .85);
+    margin-bottom: 10rem;
 }
 #trend-cities-picture-container::before{
     content: '';
@@ -430,13 +481,70 @@ main{
     background-repeat: no-repeat;
     background-position: center;
 }
-#trend-cities-container{
+.trend-cities-container{
     margin-bottom: 6rem;
 }
-#trend-cities-container,
+.trend-cities-container img{
+    border-radius: 2.5rem;
+}
+.trend-cities-container,
 #trend-cities-picture-container img{
     min-width: 480px;
     height: 100%;
+}
+/* ========================== Accommodation Part ================================ */
+#accommodation-container{
+    width: 95%;
+    height: 400px;
+    margin: auto;
+    background-image: url(../pictures/Hotel\ palacio\ de\ duques\ de\ Madrid.jpg);
+    background-size: cover; 
+    background-position: center;
+    border-radius: 2.5rem;
+}
+#accommodation-text-container{
+    width: 60%;
+    height: auto;
+    padding-left: 3rem;
+}
+#accommodation-text-container > *{
+    margin-bottom: 3rem;
+    color: #fff;
+}
+#accommodation-text-container button{
+    width: 10rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 2.5rem;
+    position: relative;
+}
+#accommodation-text-container button::before{
+    content: '';
+    width: 0;
+    height: inherit;
+    transition: all 180ms linear;
+    border-radius: 20px;
+    background-color: var(--button-hover-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+#accommodation-text-container button a{
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    z-index: 2;
+}
+#accommodation-text-container button:hover::before{
+    width: inherit;
+}
+#accommodation-text-container button:hover a{
+    color: var(--text-hover-color);
 }
 /* =============================== Media Queries ================================= */
 @media screen and (max-width: 600px) {
@@ -448,6 +556,9 @@ main{
     }
     #Costa-Rica h2 {
         margin-left: -6.3rem;
+    }
+    #trending-cities{
+        margin-bottom: 72rem;
     }
 
 }
@@ -492,7 +603,7 @@ main{
     }
     .arrow{
         transform: scale(2);
-        top: 1100px;
+        top: 1214px;
     }
     #trend-cities-picture-container{
         height: 400px;
