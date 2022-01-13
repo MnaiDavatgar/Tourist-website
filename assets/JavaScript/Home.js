@@ -1,10 +1,10 @@
 //Slider menu for menu responsivness
+
 let openButton = document.getElementById('slider-menu-open-container');
 let topLayer = document.getElementById('top-layer');
 let middleLayer = document.getElementById('middle-layer');
 let bottomLayer = document.getElementById('bottom-layer');
 let slideMenu = document.getElementById('slider-menu-container');
-let menuCountriesItem = document.getElementById('menu-countries-item');
 let zoomMenu = document.getElementById('zoom-menu');
 let downArrowContainer = document.getElementById('down-arrow-container');
 let countriesSliderMenuLink = document.getElementById('countries-slider-menu-link');
@@ -29,14 +29,35 @@ openButton.addEventListener('click', () => {
 
 //Zoom menu opening and closing
 
-document.onmouseover = function(e) {
-    if(e.target.id == 'menu-countries-item') {
-        zoomMenu.style.display = 'initial'
+let zoomMenuItems = document.querySelectorAll('#zoom-menu-list li');
+let zoomMenuContainer = document.getElementById('zoom-menu');
+let menuCountriesItem = document.getElementById('menu-countries-item');
+let zoomMenuStayKey = [];
+menuCountriesItem.addEventListener('mouseover', () => {
+        zoomMenu.style.display = 'initial';
+});
+menuCountriesItem.addEventListener('mouseout', () => {
+    setTimeout(zoomNo, 100);
+});
+zoomMenuContainer.addEventListener('mouseover', () => {
+    zoomMenuStayKey.push(1);
+});
+zoomMenuContainer.addEventListener('mouseout', () => {
+    zoomMenuStayKey.pop();
+    setTimeout(zoomNo, 10);
+});
+zoomMenuItems.forEach(n => n.addEventListener('click', () => {
+    zoomMenu.style.display = 'none';
+    zoomMenuStayKey.pop();
+}));
+function zoomNo() {
+    if(zoomMenuStayKey.length > 0){
+        zoomMenu.style.display = 'initial';
+    } else{
+        zoomMenu.style.display = 'none';   
     }
-}
-document.onclick = function() {
-    zoomMenu.style.display = 'none'
 };
+
 //Slider menu zoom opening and closing
 
 countriesSliderMenuLink.addEventListener('click', () => {
@@ -51,6 +72,7 @@ countriesSliderMenuLink.addEventListener('click', () => {
         sliderZoomMenu.style.overflow = 'auto';
     }
 });
+
 //Image slider for Countries slider menu
 
 let contCont = document.getElementById('countries-container');
@@ -60,7 +82,7 @@ var i = 0;
 var x;
 var y;
 
-//Making the image slider(because i didnt want to use % for images width)
+//Making the image slider(because i didnt want to use "%" for images width so i used "px" instead)
 
 if(window.innerWidth > 600) {
     if(window.innerWidth > 1840) {

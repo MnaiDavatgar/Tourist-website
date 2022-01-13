@@ -103,6 +103,7 @@ button{
     border-top: 2px solid seagreen;
     border-bottom: 2px solid seagreen;
     transition: all .3s linear;
+    cursor: default;
 }
 .section-header-container h2:hover{
     color: #fff;
@@ -120,7 +121,7 @@ button{
 .section-header-container{
     width: 100%;
     height: auto;
-    background-color: tomato;
+    background-color: seagreen;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,8 +151,8 @@ header button{
     width: 10rem;
     height: 2.5rem;
     border: none;
-    border-radius: 20px;
     position: relative;
+    transition: all 1s linear;
 }
 header button a {
     font-weight: var(--bold);
@@ -174,6 +175,9 @@ header button::before{
     top: 0;
     left: 0;
     z-index: 1;
+}
+header button:hover{
+    border-radius: 3rem;
 }
 header button:hover::before{
     width: inherit;
@@ -237,18 +241,17 @@ nav{
     margin-bottom: none;
 }
 #zoom-menu{
-    width: 300px;
-    height: 760px;
+    width: 280px;
+    height: 440px;
     background-color: hsl(120, 100%, 14%);
     position: absolute;
-    left: 50%;
-    top: 65px;
+    left: 54%;
+    top: 70px;
     transform: translateX(-50%);
-    border-radius: 30px;
     display: none; 
 }
 #zoom-menu-list li{
-    padding: 2rem;
+    padding: 1rem;
     border-bottom: 1px solid #fff;
 }
 #zoom-menu-list li:last-child{
@@ -258,7 +261,7 @@ nav{
     background-color: hsl(120, 100%, 7%);
 }
 #zoom-menu-list li a{
-     font-size: var(--h2-font-size);
+     font-size: 3rem;
      font-weight: var(--bold);
 }
 #zoom-menu-list li:hover a{
@@ -435,11 +438,13 @@ main{
 }
 /* ========================== Trending Cities ============================ */
 #trending-cities{
-    margin-bottom: 34rem;
+    margin-bottom: var(--m-b);
+    padding-bottom: 5rem;
 }   
 #trend-cities-picture-container{
     width: 100%;
-    height: 300px;
+    min-height: 0;
+    /* height: 300px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -486,21 +491,23 @@ main{
 }
 .trend-cities-container img{
     border-radius: 2.5rem;
-}
-.trend-cities-container,
-#trend-cities-picture-container img{
-    min-width: 480px;
+    width: 100%;
     height: 100%;
+}
+.trend-cities-container{
+    width: 480px;
+    height: 200px;
 }
 /* ========================== Accommodation Part ================================ */
 #accommodation-container{
     width: 95%;
-    height: 400px;
+    height: auto;
     margin: auto;
     background-image: url(../pictures/Hotel\ palacio\ de\ duques\ de\ Madrid.jpg);
     background-size: cover; 
     background-position: center;
     border-radius: 2.5rem;
+    padding-top: 2rem;
 }
 #accommodation-text-container{
     width: 60%;
@@ -511,12 +518,23 @@ main{
     margin-bottom: 3rem;
     color: #fff;
 }
+#accommodation-text-container p,
+#accommodation-text-container h2{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: .5rem;
+}
+#accommodation-container p{
+    font-weight: var(--bold);
+}
 #accommodation-text-container button{
     width: 10rem;
     height: 2.5rem;
     border: none;
-    border-radius: 2.5rem;
     position: relative;
+    transition: all 1s linear;
+}
+#accommodation-text-container button:hover{
+    border-radius: 3rem;
 }
 #accommodation-text-container button::before{
     content: '';
@@ -546,6 +564,66 @@ main{
 #accommodation-text-container button:hover a{
     color: var(--text-hover-color);
 }
+/* ======================== Travellers story part ======================== */
+#travellers-story-container{
+    width: 100%;
+}
+#travellers-story-container::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.travellers-story-pictures{
+    width: 29%;
+    height: 150px;
+    float: left;
+    position: relative;
+}
+.travellers-story-pictures::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.travellers-story-pictures:last-child a{
+    width: 105%;
+}
+.travellers-story-pictures img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.travellers-story-pictures:first-child::before,
+.travellers-story-pictures:nth-child(2)::before,
+.travellers-story-pictures:last-child::before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5rem 0 0 5rem;
+    z-index: 1;
+    color: var(--button-color);
+    font-weight: var(--bold);
+    font-size: 4rem;
+}
+.travellers-story-pictures:first-child::before{
+    content: 'India';
+}
+.travellers-story-pictures:nth-child(2)::before{
+    content: 'Peru';
+}
+.travellers-story-pictures:last-child::before{
+    content: 'Thiland';
+}
+#travellers-story-part .section-header-container{
+    margin-bottom: 3.5rem;
+}
+/* ======================== Footer ======================== */
+footer{
+    width: 100%;
+    height: auto;
+}
 /* =============================== Media Queries ================================= */
 @media screen and (max-width: 600px) {
     #menu-container{
@@ -557,10 +635,34 @@ main{
     #Costa-Rica h2 {
         margin-left: -6.3rem;
     }
-    #trending-cities{
-        margin-bottom: 72rem;
+    #accommodation-text-container{
+        width: 90%;
     }
-
+    #accommodation-text-container h2{
+        font-size: 2.5rem;
+    }
+    #travellers-story-container{
+        min-height: 400px;
+    }
+    .travellers-story-pictures:last-child{
+        width: 100%;
+        margin: 0;
+    }
+    .travellers-story-pictures:first-child,
+    .travellers-story-pictures:nth-child(2){
+        width: 42%;
+        margin: 0 0 2rem 1.5rem;
+    }
+    .travellers-story-pictures:first-child::before,
+    .travellers-story-pictures:nth-child(2)::before
+    {
+        font-size: 2.5rem;
+        padding: 3rem 2rem 0 3rem;
+    }
+    .travellers-story-pictures:last-child::before{
+        padding: 7rem;
+        font-size: 5rem;
+    }
 }
 @media screen and (max-width: 400px) {
     #countries-container{
@@ -580,13 +682,16 @@ main{
     header button{
         transform: scale(1.5);
     }
+    .travellers-story-pictures{
+        margin-left: 2.6rem;
+    }
 }
-@media screen and (max-width: 800px) {
+/* ================== Trend cities part responsive(1023px)  ================= */
+@media screen and (max-width: 1023px) {
     #trend-cities-picture-container::after,
     #trend-cities-picture-container::before{
-        height: 1350px;
+        height: 1250px;
     }
-
 }
 @media screen and (min-width: 1840px) {
     #countries-container{
@@ -605,9 +710,9 @@ main{
         transform: scale(2);
         top: 1214px;
     }
-    #trend-cities-picture-container{
+    /* #trend-cities-picture-container{
         height: 400px;
-    }
+    } */
 }
 /* These are the specified classes for menu open button layers for 
 when the user cicks on them */
