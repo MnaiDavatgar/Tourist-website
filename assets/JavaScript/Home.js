@@ -129,10 +129,12 @@ window.onscroll = function()
 
 function trendCitiesTextAnimationActivator() {
     let trendCitiesText = document.querySelectorAll('.trend-cities-container h2');
+    let trendCities = document.querySelectorAll('.trend-cities-container img');
 
     if(document.body.scrollTop > 900 || 
         document.documentElement.scrollTop > 900) {
             trendCitiesText.forEach(n => n.style.animationName = 'textLight');
+            trendCities.forEach(n => n.style.animationName = 'imageLight');
         }
 }
 

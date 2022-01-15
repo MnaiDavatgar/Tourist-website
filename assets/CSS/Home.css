@@ -1,5 +1,5 @@
 /* ============================== Google Fonts ================================== */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Rock+3D&family=Shizuru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&family=Open+Sans+Condensed:wght@300&family=Permanent+Marker&display=swap');
 /* ================== Css Variables ===================== */
 :root{
     /* =============== Colors ================ */
@@ -7,12 +7,12 @@
     --button-hover-color: hsl(9, 100%, 44%);
     --text-hover-color: hsl(0, 0%, 56%); 
     /*==================== Font Families ================== */
-    --h1-font: 'Shizuru', cursive;
+    --h1-font: 'Neonderthaw', cursive;
     --text-font: 'Open Sans Condensed', sans-serif;
     /* ====================== Font Sizes ======================= */
     --h1-font-size: 4rem;
     --h2-font-size: 3.5rem;
-    --text-font-size: .75rem;
+    --text-font-size: 1rem;
     --countries-header-font-size: 4rem;
     /* ====================== Font weights ===================== */
     --bold: 900;
@@ -43,7 +43,7 @@
         /* ================ Typography =============== */
         --h1-font-size: 6rem;
         --h2-font-size: 4.5rem;
-        --text-font-size: 1.75rem;
+        --text-font-size: 2rem;
         /* ================ Margin Bottom =============== */
         --m-b: 5.5rem;
     }
@@ -100,6 +100,7 @@ button{
     color: seagreen;
     background-color: #fff;
     padding: 1rem;
+    white-space: nowrap;
     border-top: 2px solid seagreen;
     border-bottom: 2px solid seagreen;
     transition: all .3s linear;
@@ -115,6 +116,9 @@ button{
     width: 100%;
     height: auto;
 }
+.section:last-child{
+    margin-bottom: 5rem;
+}
 .clicked{
     transform: rotate(180deg);
 }
@@ -125,6 +129,11 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 15px 7px #000;
+    transition: box-shadow 1s;
+}
+.section-header-container:hover{
+    box-shadow: 0 0 15px 7px seagreen;
 }
 #countries-menu .section-header-container{
     margin-bottom: 3.5rem;
@@ -198,6 +207,14 @@ nav{
     left: 0;
     z-index: var(--absolute-z-index);
     padding: 1.5rem;
+}
+#logo-container{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(../pictures/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
 }
 #menu-container{
     width: 75%;
@@ -393,6 +410,7 @@ main{
     background-color: var(--button-color);
     transition: all .7s linear;
     overflow: auto;
+    box-shadow: -5px 0 15px #000;
 }
 #slider-menu-container::-webkit-scrollbar{
     width: .75rem;
@@ -408,7 +426,7 @@ main{
     height: 100vh;
 }
 .slider-menu-item a{
-    font-family: 'Rock 3D', cursive;
+    font-family: 'Permanent Marker', cursive;
     font-size: 2.5rem;
     font-weight: var(--bold);
 }
@@ -431,10 +449,12 @@ main{
 }
 #down-arrow-container i{
     font-size: var(--h2-font-size);
-    color: #fff;
 }
 #countries-slider-menu-link div{
     display: inline-block;
+}
+#countries-slider-menu-link{
+    background-color: var(--button-color);
 }
 /* ========================== Trending Cities ============================ */
 #trending-cities{
@@ -444,7 +464,6 @@ main{
 #trend-cities-picture-container{
     width: 100%;
     min-height: 0;
-    /* height: 300px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -471,7 +490,7 @@ main{
     z-index: -2;
     right: 0;
     top: 40px;
-    background-color: rgba(0, 0, 0, .85);
+    background-color: rgba(3, 3, 3, 0.85);
     margin-bottom: 10rem;
 }
 #trend-cities-picture-container::before{
@@ -487,16 +506,21 @@ main{
     background-position: center;
 }
 .trend-cities-container{
+    width: 480px;
+    height: 200px;
     margin-bottom: 6rem;
 }
 .trend-cities-container img{
-    border-radius: 2.5rem;
     width: 100%;
     height: 100%;
+    border-radius: 2.5rem;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
-.trend-cities-container{
-    width: 480px;
-    height: 200px;
+.trend-cities-container img:hover{
+    animation-fill-mode: backwards;
 }
 /* ========================== Accommodation Part ================================ */
 #accommodation-container{
@@ -508,6 +532,13 @@ main{
     background-position: center;
     border-radius: 2.5rem;
     padding-top: 2rem;
+    box-shadow: 0 0 5px #000,
+    0 0 10px #000,
+    0 0 20px #000;
+    transition: 1s;
+}
+#accommodation-container:hover{
+    box-shadow: none;
 }
 #accommodation-text-container{
     width: 60%;
@@ -522,6 +553,10 @@ main{
 #accommodation-text-container h2{
     background-color: rgba(0, 0, 0, 0.5);
     padding: .5rem;
+}
+#accommodation-text-container p:hover,
+#accommodation-text-container h2:hover{
+    background-color: rgb(0, 0, 0);
 }
 #accommodation-container p{
     font-weight: var(--bold);
@@ -567,7 +602,11 @@ main{
 /* ======================== Travellers story part ======================== */
 #travellers-story-container{
     width: 100%;
+    padding-bottom: 5rem;
 }
+
+/* ============== Clearfix Hack ============= */
+
 #travellers-story-container::after{
     content: '';
     clear: both;
@@ -575,14 +614,9 @@ main{
 }
 .travellers-story-pictures{
     width: 29%;
-    height: 150px;
+    height: auto;
     float: left;
     position: relative;
-}
-.travellers-story-pictures::after{
-    content: '';
-    clear: both;
-    display: table;
 }
 .travellers-story-pictures:last-child a{
     width: 105%;
@@ -591,6 +625,13 @@ main{
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    box-shadow: 0 0 5px #000,
+    0 0 10px #000,
+    0 0 20px #000;
+    transition: .5s;
+}
+.travellers-story-pictures img:hover{
+    box-shadow: none;
 }
 .travellers-story-pictures:first-child::before,
 .travellers-story-pictures:nth-child(2)::before,
@@ -619,10 +660,128 @@ main{
 #travellers-story-part .section-header-container{
     margin-bottom: 3.5rem;
 }
+#travellers-story-button{
+    width: 30%;
+    height: 4rem;
+    border: none;
+    position: relative;
+    transition: all 1s linear;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#travellers-story-button a{
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: .2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    z-index: 2;
+}
+#travellers-story-button::before{
+    content: '';
+    width: 0;
+    height: inherit;
+    transition: all 180ms linear;
+    border-radius: 20px;
+    background-color: var(--button-hover-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+#travellers-story-button:hover{
+    border-radius: 3rem;
+}
+#travellers-story-button:hover::before{
+    width: 100%;
+}
+#travellers-story-button:hover a{
+    color: var(--text-hover-color);
+}
 /* ======================== Footer ======================== */
 footer{
     width: 100%;
     height: auto;
+    border-top: 1px solid gray;
+    padding-top: 2rem;
+}
+#footer-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer-container > *{
+    margin-bottom: var(--m-b);
+}
+#footer-text{
+    width: 80%;
+    text-align: center;
+}
+#footer-text > *{
+    margin-bottom: 2rem;
+}
+#footer-social-networks-icons{
+    width: 100%;
+    height: auto;
+}
+#icons-list-container{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#icons-list-container li{
+    width: 25%;
+    border: 2px solid hsl(0, 0%, 48%);
+    font-size: 3rem;
+    padding: 2rem;
+    transition: .3s transform, .3s box-shadow, .6s font-size;
+    box-shadow: 0 0 25px #000;
+}
+#icons-list-container li:hover{
+    font-size: 4.5rem;
+    transform: rotateY(-25deg) translateX(-1.5rem);
+    box-shadow: -10px 0 15px 5px #000;
+}
+#icons-list-container li:first-child{
+    background-color: hsl(221, 44%, 41%);
+}
+#icons-list-container li:nth-child(2){
+    background-color: hsl(197, 100%, 47%);
+}
+#icons-list-container li:nth-child(3){
+    background-color: hsl(0, 100%, 50%);
+}
+#icons-list-container li:nth-child(4){
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+#icons-list-container li:last-child{
+    background-color: hsl(190, 82%, 30%);
+}
+#icons-list-container li a i{
+    color: #000;
+}
+#copyright{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid gray;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 3rem;
+    transition: .5s;
+}
+#copyright:hover{
+    border-top: 5px solid #000;
+    font-size: 2rem;
 }
 /* =============================== Media Queries ================================= */
 @media screen and (max-width: 600px) {
@@ -657,11 +816,18 @@ footer{
     .travellers-story-pictures:nth-child(2)::before
     {
         font-size: 2.5rem;
-        padding: 3rem 2rem 0 3rem;
+        padding: 2rem 2rem 0 1rem;
     }
     .travellers-story-pictures:last-child::before{
-        padding: 7rem;
+        padding: 7rem 0 0 1rem;
         font-size: 5rem;
+    }
+    #travellers-story-button{
+        width: 90%;
+    }
+    #icons-list-container li:first-child{
+        padding: 0 2rem;
+        min-height: 123px;
     }
 }
 @media screen and (max-width: 400px) {
@@ -710,9 +876,46 @@ footer{
         transform: scale(2);
         top: 1214px;
     }
-    /* #trend-cities-picture-container{
-        height: 400px;
-    } */
+    .section-header-container h2{
+        padding: 3rem;
+    }
+    .trend-cities-container{
+        height: 300px;
+    }
+    #trend-cities-picture-container::after,
+    #trend-cities-picture-container::before
+    {
+        height: 500px;
+    }
+    #accommodation-text-container > *{
+        margin-bottom: 10rem;
+    }
+    #accommodation-text-container p,
+    #accommodation-text-container h2{
+        padding: 2rem;
+    }
+    #accommodation-text-container button{
+        width: 15rem;
+        height: 5.5rem;
+    }
+    #accommodation-text-container button a,
+    #travellers-story-button a{
+        font-size: 1.5rem;
+    }
+    #travellers-story-button{
+        height: 8rem;
+    }
+    #icons-list-container li{
+        font-size: 7rem;
+    }
+    footer{
+        border-top: 3px solid gray;
+    }
+    #copyright{
+        height: 100px;
+        font-size: 3.5rem;
+        border-top: 3px solid gray;
+    }
 }
 /* These are the specified classes for menu open button layers for 
 when the user cicks on them */
@@ -745,5 +948,16 @@ when the user cicks on them */
         0 0 20px hsl(195, 96%, 45%),
         0 0 35px hsl(195, 96%, 45%),
         0 0 50px hsl(195, 96%, 45%);
+    }
+}
+@keyframes imageLight {
+    from
+    {
+        box-shadow: none;
+    }
+    to
+    {
+        box-shadow: 0 0 15px hsl(195, 96%, 45%),
+        0 0 25px hsl(195, 96%, 45%);
     }
 }
