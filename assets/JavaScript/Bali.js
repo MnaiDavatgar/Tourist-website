@@ -146,7 +146,7 @@ main.onscroll = function() {
 
         if(window.innerWidth > 1840) {
 
-            rootClassName.style.setProperty('--header-height', '200px');
+            rootClassName.style.setProperty('--header-height', '150px');
         }
 
         rootClassName.style.setProperty('--header-height', '60px');

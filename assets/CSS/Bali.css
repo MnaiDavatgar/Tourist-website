@@ -12,9 +12,9 @@
     --h1-font: 'Alfa Slab One', cursive;
     --text-font: 'Open Sans Condensed', sans-serif;
     /* ====================== Font Sizes ======================= */
-    --h1-font-size: 4rem;
-    --h2-font-size: 3.5rem;
-    --h3-font-size: 2.5rem;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2rem;
     --text-font-size: 1rem;
     --countries-header-font-size: 4rem;
     /* ====================== Font weights ===================== */
@@ -28,7 +28,7 @@
     --m-b: 3rem;
     /* ============================ Header Height =========================== */
     --header-height: 100px;
-    --header-box-shadow: ;
+    --header-box-shadow: 0 -5px 10px #000;
 }
 @media screen and (min-width: 600px) {
     :root{
@@ -42,8 +42,9 @@
     :root{
         /* ================ Typography =============== */
         --h1-font-size: 6rem;
-        --h2-font-size: 4.5rem;
-        --text-font-size: 2rem;
+        --h2-font-size: 5.5rem;
+        --h3-font-size: 4rem;
+        --text-font-size: 3rem;
         /* ================ Margin Bottom =============== */
         --m-b: 5.5rem;
         /* ============== Header Height ============== */
@@ -308,14 +309,15 @@ main::-webkit-scrollbar-thumb{
 /* ===================== Top Pictures ===================== */
 #top-part{
     margin-bottom: 0;
+    height: auto;
 }
 #top-pictures-container{
     width: 100%;
-    height: auto;
+    height: 50%;
 }
 .top-pictures{
     width: 50%;
-    height: 400px;
+    height: 100%;
 }
 .top-pictures img{
     width: 100%;
@@ -323,7 +325,7 @@ main::-webkit-scrollbar-thumb{
 }
 #top-text-container{
     width: 100%;
-    height: auto;
+    height: 50%;
     color: #fff;
     padding: 1rem 1rem 1.5rem 1rem;
     background-color: var(--button-hover-color);
@@ -509,8 +511,62 @@ footer{
 }
 /* ============================ Media Queries ============================= */
 @media screen and (max-width: 600px) {
+    #back-to-initial-button{
+        transform: scale(.75);
+        font-size: 1.5rem;
+        right: -5%;
+    }
+    .menu-link{
+        font-size: 1rem;
+    }
+    #bali-diving-picture h1{
+        font-size: calc(var(--h1-font-size) + 1rem);
+        letter-spacing: 1rem;
+    }
+    #tour-box{
+        font-size: 2.3rem;
+        padding-left: 0;
+    }
+    #top-part{
+        height: inherit;
+    }
 }
 @media screen and (min-width: 1840px) {
+    #behind-page-first-text-container h1{
+        font-size: 12rem;
+    }
+    #behind-page-first-text-container p{
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+    .arrow-container{
+        width: 100px;
+        height: 100px;
+        font-size: 3.2rem;
+    }
+    .menu-link{
+        font-size: 4rem;
+    }
+    .menu-link i{
+        font-size: 6rem;
+    }
+    #behind-page-button{
+        font-size: 2rem;
+        padding: 2rem 3rem;
+    }
+    #behind-page-second-text-container > *{
+        margin-bottom: 2rem;
+    }
+    #top-text-container{
+        height: 400px;
+    }
+    #bali-diving-picture{
+        height: 700px;
+    }
+    #tour-box{
+        height: 300px;
+        font-size: 5rem;
+    }
 }
 /* ========================== Animations ========================== */
 @keyframes behindTextUp {
