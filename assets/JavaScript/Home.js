@@ -9,6 +9,7 @@ let zoomMenu = document.getElementById('zoom-menu');
 let downArrowContainer = document.getElementById('down-arrow-container');
 let countriesSliderMenuLink = document.getElementById('countries-slider-menu-link');
 let sliderZoomMenu = document.getElementById('sliderMenuZoomMenuContainer');
+let bali = document.getElementById('Bali');
 let openKey = false;
 
 openButton.addEventListener('click', () => {
@@ -26,7 +27,9 @@ openButton.addEventListener('click', () => {
         openKey = false;
     }
 });
-
+bali.addEventListener('click', () => {
+    location.assign('Bali.html');
+});
 //Zoom menu opening and closing
 
 let zoomMenuItems = document.querySelectorAll('#zoom-menu-list li');
@@ -63,10 +66,13 @@ function zoomNo() {
 countriesSliderMenuLink.addEventListener('click', () => {
     downArrowContainer.classList.toggle('clicked');
     if(sliderZoomMenu.style.height == '500px') {
+
     sliderZoomMenu.style.height = '100px';
     sliderZoomMenu.style.overflow = 'hidden';
     sliderZoomMenu.style.backgroundColor = 'var(--button-color)';
-    } else{
+    
+} else{
+
         sliderZoomMenu.style.height = '500px';
         sliderZoomMenu.style.backgroundColor = 'hsl(9, 100%, 44%)';
         sliderZoomMenu.style.overflow = 'auto';
@@ -85,19 +91,25 @@ var y;
 //Making the image slider(because i didnt want to use "%" for images width so i used "px" instead)
 
 if(window.innerWidth > 600) {
+
     if(window.innerWidth > 1840) {
+
         x = 595;
     } else{
+
         x = 1785;
     }
 } 
 else{
+
     x = 2380;
 }
 
 if(window.innerWidth < 400){
+
     y = 350;
 } else{
+
     y = 595;
 }
 
@@ -107,6 +119,7 @@ scrollerArrow.addEventListener('click', () => {
 
     Number(i += y);
     if(i > x) {
+
         i = 0;
     }
 
@@ -116,6 +129,7 @@ scrollerArrow.addEventListener('click', () => {
 backScrollerArrow.addEventListener('click', () => {
     Number(i -= y);
     if(i < 0) {
+
         i = 2380;
     }
 
@@ -133,6 +147,7 @@ function trendCitiesTextAnimationActivator() {
 
     if(document.body.scrollTop > 900 || 
         document.documentElement.scrollTop > 900) {
+            
             trendCitiesText.forEach(n => n.style.animationName = 'textLight');
             trendCities.forEach(n => n.style.animationName = 'imageLight');
         }

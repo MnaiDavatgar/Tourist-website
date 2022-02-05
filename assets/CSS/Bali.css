@@ -1,0 +1,597 @@
+/* ============================== Google Fonts ================================== */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Neonderthaw&family=Open+Sans+Condensed:wght@300&display=swap');
+/* ================== Css Variables ===================== */
+:root{
+    /* =============== Colors ================ */
+    --button-color: hsl(204, 96%, 35%);
+    --button-hover-color: hsl(204, 96%, 15%);
+    --background-color: hsl(151, 48%, 16%);
+    --text-hover-color: hsl(0, 0%, 56%);
+    --menu-text-hover-color: hsl(36, 100%, 50%); 
+    /*==================== Font Families ================== */
+    --h1-font: 'Alfa Slab One', cursive;
+    --text-font: 'Open Sans Condensed', sans-serif;
+    /* ====================== Font Sizes ======================= */
+    --h1-font-size: 4rem;
+    --h2-font-size: 3.5rem;
+    --h3-font-size: 2.5rem;
+    --text-font-size: 1rem;
+    --countries-header-font-size: 4rem;
+    /* ====================== Font weights ===================== */
+    --bold: 900;
+    --semi-bold: 700;
+    --thin: 500;
+    /* ======================== Z-indexes ====================== */
+    --absolute-z-index: 10;
+    --fixed-z-index: 1000;
+    /* ===================== Margin Bottom ====================== */
+    --m-b: 3rem;
+    /* ============================ Header Height =========================== */
+    --header-height: 100px;
+    --header-box-shadow: ;
+}
+@media screen and (min-width: 600px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 5rem;
+        --h2-font-size: 4rem;
+        --text-font-size: 1.25rem;       
+    }
+}
+@media screen and (min-width: 1840px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 6rem;
+        --h2-font-size: 4.5rem;
+        --text-font-size: 2rem;
+        /* ================ Margin Bottom =============== */
+        --m-b: 5.5rem;
+        /* ============== Header Height ============== */
+        --header-height: 250px;
+    }
+}
+/* ============================ Basics =============================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html::-webkit-scrollbar{
+    width: .75rem;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
+html::-webkit-scrollbar-thumb:hover{
+    background-color: var(--button-hover-color);
+}
+body{
+    font-size: var(--text-font-size);
+    min-height: 100vh;
+    background-color: transparent;
+}
+nav, main{
+    background-color: var(--background-color);
+}
+footer{
+    background-color: var(--button-hover-color);
+    color: rgb(146, 146, 146);
+}
+footer,
+#footer-section,
+#bali-text-part{
+    margin-bottom: 0;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    display: inline-block;
+    font-size: var(--h1-font-size);
+    font-family: var(--h1-font);
+    font-weight: var(--bold);
+}
+p, h2{
+    font-family: var(--text-font);
+}
+h2{
+    font-size: var(--h2-font-size);
+}
+h3{
+    font-size: var(--h3-font-size);
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+ul{
+    list-style: none;
+}
+button{
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+}
+button:hover{
+    background-color: var(--button-hover-color);
+}
+i{
+    color: #fff;
+}
+i:hover{
+    color: var(--text-hover-color);
+}
+/* ====================== Reusable Classes ====================== */
+.section{
+    margin-bottom: var(--m-b);
+    width: 100%;
+    height: auto;
+}
+.section:last-child{
+    margin-bottom: 5rem;
+}
+.flex-box{
+    display: flex;
+    align-items: center;
+}
+/* ========================= Header ========================== */
+header{
+    width: 50%;
+    height: 100vh;
+    background-image: url(../pictures/Bali\ mountain.jpeg);
+    background-size: cover;
+    background-position: 85% center;
+    position: absolute;
+}
+nav{
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    box-shadow: var(--header-box-shadow);
+    transition: 1s;
+}
+#menu-list{
+    width: 90%;
+    height: var(--header-height);
+    justify-content: space-around;
+}
+.menu-item{
+    font-size: 1.7rem;
+}
+.menu-link:hover,
+.menu-link:hover i{
+    color: var(--menu-text-hover-color);
+}
+.menu-link{
+    color: #ff0;
+}
+.menu-link i{
+    font-size: 2.6rem;
+    color: #ff0;
+}
+#behind-page-first-text-container{
+    width: max-content;
+    top: 40%;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+#behind-page-first-text-container h1{
+    text-transform: uppercase;
+    letter-spacing: .6rem;
+}
+#behind-page-first-text-container p{
+    font-size: 1.5rem;
+}
+#behind-page-second-text-container{
+    width: fit-content;
+    height: auto;
+    top: 20%;
+    opacity: 0;
+    padding: 1rem;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+#behind-page-second-text-container h2 span{
+    color: #fff;
+    letter-spacing: .5rem;
+    position: relative;
+    border-right: 5px solid #ff0;
+}
+#behind-page-button{
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 17px;
+    box-shadow: 20px 15px 23px #000,
+    inset 0 -10px 30px #000;
+}
+.behind-page-text-container{
+    height: auto;
+    color: #00f;
+    text-align: center;
+    line-height: 5rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.arrow-container{
+    width: 50px;
+    height: 50px;
+    position: inherit;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background-color);
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    box-shadow: 20px 15px 23px #000,
+    inset 0 -10px 30px #000;
+}
+.arrow-container:hover{
+    background-color: var(--button-hover-color);
+}
+#back-to-initial-button{
+    width: 200px;
+    height: 100px;
+    background-color: var(--button-color);
+    position: absolute;
+    border-radius: 30px 0 0 30px;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    box-shadow: 20px 15px 23px #000,
+    inset 0 -10px 30px #000;
+    display: none;
+}
+#back-to-initial-button:hover{
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
+}
+/* ====================== Main ====================== */
+main{
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    box-shadow: -7px 0 15px #000;
+    overflow: auto;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+main::-webkit-scrollbar{
+    width: .75rem;
+}
+main::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
+#zoom-menu{
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    bottom: var(--header-height);
+    left: 28%;
+    display: none;
+}
+#zoom-menu-list{
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-color);
+}
+.zoom-menu-items{
+    text-align: center;
+    padding: 2.25rem 1rem;
+    border-bottom: 1px solid #ff0;
+}
+.zoom-menu-items:hover{
+    background-color: var(--button-hover-color);
+}
+.zoom-menu-links{
+    color: #ff0;
+    font-size: 1.5rem;
+}
+.zoom-menu-links:hover{
+    color: var(--menu-text-hover-color);
+}
+/* ===================== Top Pictures ===================== */
+#top-part{
+    margin-bottom: 0;
+}
+#top-pictures-container{
+    width: 100%;
+    height: auto;
+}
+.top-pictures{
+    width: 50%;
+    height: 400px;
+}
+.top-pictures img{
+    width: 100%;
+    height: 100%;
+}
+#top-text-container{
+    width: 100%;
+    height: auto;
+    color: #fff;
+    padding: 1rem 1rem 1.5rem 1rem;
+    background-color: var(--button-hover-color);
+}
+/* ============================= Bali Text Part ============================== */
+#bali-text-part{
+    background-color: var(--button-hover-color);
+}
+#footer-section{
+    display: none; 
+}
+#bali-text-container{
+    width: 100%;
+    height: auto;
+    color: #fff;
+    padding-bottom: 1.5rem;
+    display: none;
+}
+/* Clearfix Hack */
+
+#bali-text-container::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+#bali-diving-picture{
+    width: 100%;
+    height: 500px;
+    margin-bottom: 2.5rem;
+    background-image: url(../pictures/Bali\ diving.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+.bubbles{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #00f;
+    position: absolute;
+    box-shadow: 0 0 15px #000,
+    inset 7px -7px 30px rgba(255, 255, 255, .8);
+}
+.bubbles:first-child{
+    left: 5%;
+    top: 0;
+}
+.bubbles:nth-child(2){
+    left: 20%;
+    top: 400px;
+}
+.bubbles:nth-child(3){
+    left: 50%;
+    top: 100px;
+}
+#lastBubble{
+    left: 80%;
+    top: 300px;
+}
+#bali-diving-picture h1{
+    text-transform: uppercase;
+    font-size: calc(var(--h1-font-size) + 3rem);
+    letter-spacing: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(90deg, #8e2de2, #4a00e0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: default;
+    animation-name: example;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+#tour-box{
+    width: 50%;
+    height: 200px;
+    background-color: var(--background-color);
+    float: left;
+    margin: 2rem 2rem 2rem 0;
+    border-left: 20px solid tomato;
+    font-size: 3rem;
+    padding-left: 1rem;
+    transition: .5s;
+}
+#tour-box:hover{
+    border-color: #000;
+}
+#tour-box a{
+    color: tomato;
+    text-decoration: underline;
+}
+#tour-box a:hover{
+    color: #000;
+    text-decoration: none;
+}
+/* ======================== Footer ======================== */
+footer{
+    width: 100%;
+    height: auto;
+    border-top: 1px solid gray;
+    padding-top: 2rem;
+}
+#footer-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer-container > *{
+    margin-bottom: var(--m-b);
+}
+#footer-text{
+    width: 80%;
+    text-align: center;
+}
+#footer-text > *{
+    margin-bottom: 2rem;
+}
+#footer-social-networks-icons{
+    width: 100%;
+    height: auto;
+}
+#icons-list-container{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#icons-list-container li{
+    width: 25%;
+    border: 2px solid hsl(0, 0%, 48%);
+    font-size: 3rem;
+    padding: 2rem;
+    transition: .3s transform, .3s box-shadow, .6s font-size;
+    box-shadow: 0 0 25px #000;
+}
+#icons-list-container li:hover{
+    font-size: 4.5rem;
+    transform: rotateY(-25deg) translateX(-1.5rem);
+    box-shadow: -10px 0 15px 5px #000;
+}
+#icons-list-container li:first-child{
+    background-color: hsl(221, 44%, 41%);
+}
+#icons-list-container li:nth-child(2){
+    background-color: hsl(197, 100%, 47%);
+}
+#icons-list-container li:nth-child(3){
+    background-color: hsl(0, 100%, 50%);
+}
+#icons-list-container li:nth-child(4){
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+#icons-list-container li:last-child{
+    background-color: hsl(190, 82%, 30%);
+}
+#icons-list-container li a i{
+    color: #000;
+}
+#copyright{
+    width: 100%;
+    height: 120px;
+    border-top: 1px solid gray;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 3rem;
+    transition: .5s;
+    margin-bottom: 0;
+}
+#copyright:hover{
+    border-top: 5px solid #000;
+    font-size: 2rem;
+}
+/* ============================ Media Queries ============================= */
+@media screen and (max-width: 600px) {
+}
+@media screen and (min-width: 1840px) {
+}
+/* ========================== Animations ========================== */
+@keyframes behindTextUp {
+    from
+    {
+        top: 40%;
+        opacity: 1;
+    }
+    to
+    {
+        top: 20%;
+        opacity: 0;
+    }
+}
+@keyframes behindTextDown {
+    from
+    {
+        top: 20%;
+        opacity: 0;
+    }
+    to
+    {
+        top: 40%;
+        opacity: 1;
+    }
+}
+@keyframes mainWider {
+    from
+    {
+        width: 50%;
+        text-align: left;
+    }
+    to
+    {
+        width: 100%;
+        text-align: center;
+    }
+}
+@keyframes mainShrink {
+    from
+    {
+        width: 100%;
+        text-align: center;
+    }
+    to
+    {
+        width: 50%;
+        text-align: left;
+    }
+}
+@keyframes gradientAnimation {
+    0%
+    {
+        background-image: linear-gradient(90deg, #8e2de2, #4a00e0);
+    }
+    12.5%
+    {
+        background-image: linear-gradient(90deg, #b92b27, #1565C0);
+    }
+    25%
+    {
+        background-image: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    }
+    37.5%
+    {
+        background-image: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+    50%
+    {
+        background-image: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+    62.5%
+    {
+        background-image: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    }
+    75%
+    {
+        background-image: linear-gradient(90deg, #b92b27, #1565C0);
+    }
+    100%
+    {
+        background-image: linear-gradient(90deg, #8e2de2, #4a00e0);
+    }
+}
