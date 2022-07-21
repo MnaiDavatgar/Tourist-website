@@ -1,0 +1,694 @@
+/* ============================== Google Fonts ================================== */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Neonderthaw&family=Open+Sans+Condensed:wght@300&family=Pacifico&family=Rowdies:wght@700&display=swap');
+/* ================== Css Variables ===================== */
+:root{
+    /* =============== Colors ================ */
+    --button-color: dodgerblue;
+    --button-hover-color: #00f;
+    --text-hover-color: hsl(0, 0%, 56%); 
+    /*==================== Font Families ================== */
+    --h1-font: 'Neonderthaw', cursive;
+    --menu-font: 'Pacifico', cursive;
+    --text-font: 'Open Sans Condensed', sans-serif;
+    --iceland-big-font: 'Rowdies', cursive;
+    /* ====================== Font Sizes ======================= */
+    --h1-font-size: 4rem;
+    --h2-font-size: 3.5rem;
+    --text-font-size: 1rem;
+    --menu-font-size: 2rem;
+    --countries-header-font-size: 4rem;
+    /* ====================== Font weights ===================== */
+    --bold: 900;
+    --semi-bold: 700;
+    --thin: 500;
+    /* ======================== Z-indexes ====================== */
+    --absolute-z-index: 10;
+    --fixed-z-index: 100;
+    /* ===================== Margin Bottom ====================== */
+    --m-b: 3rem;
+    /* ============================ Header Height =========================== */
+    --header-height: 100px;
+}
+@media screen and (max-width: 600px) {
+    :root{
+        --menu-font-size: 1rem;
+    }
+}
+@media screen and (min-width: 600px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 5rem;
+        --h2-font-size: 4rem;
+        --text-font-size: 1.25rem;       
+    }
+}
+@media screen and (min-width: 1840px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 6rem;
+        --h2-font-size: 4.5rem;
+        --text-font-size: 2rem;
+        --menu-font-size: 4rem;
+        /* ================ Margin Bottom =============== */
+        --m-b: 5.5rem;
+        /* ============================ Header Height =========================== */
+        --header-height: 150px;
+    }
+}
+/* ============================ Basics =============================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html::-webkit-scrollbar{
+    width: .75rem;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
+html::-webkit-scrollbar-thumb:hover{
+    background-color: var(--button-hover-color);
+}
+body{
+    font-size: var(--text-font-size);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url(../pictures/blue\ lagoon\ iceland.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header, nav{
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+}
+main{
+    /* height: 0; */
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    overflow: auto;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    display: inline-block;
+    font-size: var(--h1-font-size);
+    font-family: var(--h1-font);
+    font-weight: var(--bold);
+}
+p, h2{
+    font-family: var(--text-font);
+    color: #000;
+}
+h2{
+    font-size: var(--h2-font-size);
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+button{
+    background-color: var(--button-color);
+}
+.section{
+    width: 100%;
+    height: auto;
+}
+.ice__animation{
+    animation-name: iceAnime;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+}
+/* ========================== Navigation Bar ========================== */
+#header-container{
+    width: 100%;
+    height: var(--header-height);
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+#iceland-mobile-container{
+    width: 100%;
+    height: var(--header-height);
+    position: absolute;
+    top: var(--header-height);
+    display: none;
+}
+#empty-box-navigation-bar{
+    width: 50%;
+    height: 100%;
+}
+.menu-boxes{
+    width: 25%;
+    height: 100%;
+}
+.menu-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#left-menu i{
+    font-size: 2.3rem;
+}
+#left-menu i:hover{
+    font-size: 3rem;
+    transition: font-size 1s;
+}
+.menu-container li{
+    padding: 2rem 0;
+}
+#right-menu li:first-child,
+#left-menu li:first-child{  
+    border-right: 1px solid #fff;
+    padding-right: 2rem;
+}
+.menu-boxes a{
+    color: #000;
+}
+.header-items{
+    float: left;
+}
+#countries-item{
+    cursor: default;
+}
+#countries-item{
+    color: dodgerblue;
+    font-family: var(--menu-font);
+    font-size: var(--menu-font-size);
+}
+#header-container li a{
+    transition: font-size 1s;
+    font-size: var(--text-font-size);
+}
+#header-container li a:hover{
+    color: dodgerblue;
+    font-family: var(--menu-font);
+    font-size: var(--menu-font-size);
+}
+#zoom-menu{
+    width: max-content;
+    height: auto;
+    display: none;
+    background-color: rgba(255, 255, 255, .9);
+    position: fixed;
+    top: var(--header-height);
+    z-index: 1000;
+    left: 12%;
+}
+#zoom-menu-list{
+    width: 100%;
+    height: auto;
+}
+#zoom-menu-list li{
+    padding: 2rem 1rem;
+    border-bottom: 1px solid #000;
+}
+#zoom-menu-list li a{
+    color: #000;
+    transition: font-size 1s;
+}
+#zoom-menu-list li:hover a{
+    color: dodgerblue;
+    font-family: var(--menu-font);
+    font-size: var(--menu-font-size);
+}
+#zoom-menu-list li:last-child{
+   border-bottom: none; 
+}
+/* ======================= Big Iceland Boxes ======================== */
+#big-iceland-box{
+    width: 95%;
+    height: 500px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    margin-bottom: 5rem;
+}
+#left-big-iceland-containers{
+    border-radius: 15px 0 0 15px;
+}
+#right-big-iceland-containers{
+    background-color: hsla(16, 100%, 50%, .5);
+    border-left: 3px solid #000;
+    border-radius: 0 15px 15px 0;
+}
+.big-iceland-containers{
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.big-texts{
+    font-family: var(--iceland-big-font);
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 200;
+    font-size: 144px;
+}
+#left-big-text{
+    color: #fff;
+    letter-spacing: 1rem;
+    position: absolute;
+    right: 53%;
+    z-index: var(--fixed-z-index);
+    text-shadow: 0 0 15px #000;
+    top: 25%;
+}
+#right-big-text{
+    color: transparent;
+    background-image: url(../pictures/magma.jpg);
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    z-index: var(--fixed-z-index);
+}
+#tours-box{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+#tours-box-text p{
+    margin-bottom: 1rem;
+}
+#tours-box-text{
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+#tours-box-text a{
+    font-size: 2rem;
+    color: dodgerblue;
+    font-weight: var(--bold);
+    margin-bottom: 2rem;
+}
+#tours-box-text a:hover{
+    color: #00f;
+}
+#see-more-button{
+    width: 100%;
+    height: var(--header-height);
+    border: none;
+    text-transform: uppercase;
+    font-size: var(--h2-font-size);
+    font-weight: var(--bold);
+    color: #fff;
+}
+#see-more-button:hover{
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
+    cursor: pointer;
+}
+/* ====================== Main ====================== */
+#top-picture-container{
+    width: 100%;
+    height: 500px;
+    background-image: url(../pictures/Iceland.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#black-beach-container{
+    width: 25%;
+    text-transform: uppercase;
+    padding: 5rem 0 7rem 2rem;
+}
+#black-beach-container h2{
+    letter-spacing: 2rem;
+}
+#black-beach-container p{
+    color: hsl(150, 50%, 40%);
+    font-weight: var(--semi-bold);
+    margin-bottom: 1rem;
+}
+#bottom-line{
+    width: 15%;
+    border: 2px solid #fff;
+    animation: lineAnime 2s infinite;
+    animation-timing-function: ease-in-out;
+}
+#top-picture-section{
+    margin-bottom: 2rem;
+}
+#travel-to-iceland{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+#travel-to-iceland h3{
+    font-size: 2.5rem;
+    color: #fff;
+}
+#travel-to-iceland p{
+    color: var(--text-hover-color);
+    margin-bottom: 1rem;
+}
+#second-bottom-line{
+    width: 10%;
+    border: 1px solid #fff;
+    margin: auto;
+}
+.attraction-pictures{
+    width: 28%;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 15px hsl(200, 100%, 70%),
+    0 0 35px hsl(200, 100%, 70%);
+}
+.attraction-pictures-text-container{
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, .9);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding-top: 1rem;
+    transition: .5s;
+}
+.attraction-pictures h3{
+    font-size: 2rem;
+    text-shadow: 0 0 10px #000;
+    display: none;
+}
+#attractions-picture-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#cargo-picture{
+    background-image: url(../pictures/cargo\ ship.webp);
+    background-position: center;
+}
+#ice-cave-picture{
+    background-image: url(../pictures/ice\ cave.jpg);
+    background-position: center;
+}
+#cubuc-cliff-picture{
+    background-image: url(../pictures/cubic\ cliff.jpg);
+    background-position: left;
+}
+/* ======================== Footer ======================== */
+footer{
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;
+    display: none;
+}
+#footer-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+}
+#footer-container > *{
+    margin-bottom: var(--m-b);
+}
+#footer-text{
+    width: 80%;
+    text-align: center;
+}
+#footer-text p{
+    color: #fff;
+}
+#footer-text > *{
+    margin-bottom: 2rem;
+}
+#footer-social-networks-icons{
+    width: 100%;
+    height: auto;
+}
+#icons-list-container{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#icons-list-container li{
+    width: 25%;
+    border: 2px solid hsl(0, 0%, 48%);
+    font-size: 3rem;
+    padding: 2rem;
+    transition: .3s transform, .3s box-shadow, .6s font-size;
+    box-shadow: 0 0 25px #000;
+}
+#icons-list-container li:hover{
+    font-size: 4.5rem;
+    transform: rotateY(-25deg) translateX(-1.5rem);
+    box-shadow: -10px 0 15px 5px #000;
+}
+#icons-list-container li:first-child{
+    background-color: hsl(221, 44%, 41%);
+}
+#icons-list-container li:nth-child(2){
+    background-color: hsl(197, 100%, 47%);
+}
+#icons-list-container li:nth-child(3){
+    background-color: hsl(0, 100%, 50%);
+}
+#icons-list-container li:nth-child(4){
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+#icons-list-container li:last-child{
+    background-color: hsl(190, 82%, 30%);
+}
+#icons-list-container li a i{
+    color: #000;
+}
+#copyright{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid gray;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 3rem;
+    transition: .5s;
+}
+#copyright p{
+    color: #fff;
+}
+#copyright:hover{
+    border-top: 5px solid #fff;
+    font-size: 2rem;
+}
+/* ========================= Media Queries ======================== */
+@media screen and (max-width: 600px) {
+    #right-menu li:first-child{
+        padding-right: 0;
+    }
+    #empty-box-navigation-bar{
+        display: none;
+    }
+    .menu-boxes{
+        width: 50%;
+    }
+    #right-menu li:first-child,
+    #left-menu li:first-child{
+        border-right: none;
+    }
+    #big-iceland-box{
+        margin-top: var(--header-height);
+    }
+    #right-big-text{
+        top: 55%;
+    }
+    #left-big-text{
+        top: 30%;
+    }
+    .big-texts{
+        font-size: 70px;
+    }
+}
+@media screen and (max-width: 515px) {
+    #left-big-text{
+        top: 30%;
+    }
+    #right-big-text{
+        top: 55%;
+    }
+    .big-texts{
+        font-size: 50px;
+    }
+}
+@media screen and (min-width: 1840px) {
+    #big-iceland-box{
+        height: 700px;
+        margin-bottom: 10rem;
+    }
+    #left-menu i{
+        font-size: 4rem;
+    }
+    #zoom-menu-list li{
+        font-size: 3.5rem;
+        border-bottom: 2px solid #000;
+    }
+    #black-beach-container h2{
+        font-size: 6rem;
+    }
+    #black-beach-container p{
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    .attraction-pictures{
+        height: 700px;
+    }
+    #second-bottom-line{
+        border: 3px solid #fff;
+    }
+    #travel-to-iceland p{
+        margin-bottom: 3rem;
+    }
+    #travel-to-iceland{
+        margin-bottom: 5rem;
+    }
+}
+@media screen and (max-width:1055px) {
+    #left-big-text{
+        top: 20%;
+    }
+    #right-big-text{
+        top: 30%;
+    }
+    .big-texts{
+        font-size: 100px;
+    }
+}
+/* ================== Animations ================== */
+@keyframes iceAnime {
+    from
+    {
+        background-color: transparent;
+    }   
+    to
+    {
+        background-color: rgba(255, 255, 255, .7);
+        box-shadow: 0 0 15px rgb(133, 132, 132),
+        inset 0 0 15px rgb(133, 132, 132);
+    } 
+}
+/* ===================== Fire Effect ========================= */
+.mo-fire {
+    width: 50%;
+    height: auto;
+    position: fixed;
+    right: -4%;
+    bottom: -20px;
+    z-index: 4;
+  }
+  
+  #svg-view {
+      width: 252px;
+      height: 125px;
+      left: 0px;
+  }
+  
+  .mo-fire svg {
+    width: 100%;
+    height: auto;
+    position:relative;
+    right:40px;
+  }
+  .flame {
+    animation-name: flameDisappear;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.5;
+    transform-origin: 45% 45% 0;
+  }
+  .flame.one {
+    animation-delay: 1s;
+    animation-duration: 3s;
+  }
+  .flame.two{
+    animation-duration: 5s;
+    animation-delay: 1s;
+  }
+  .flame-main {
+    animation-name: flameMovement;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .flame-main.one {
+    animation-duration: 2.2s;
+    animation-delay: 1s;
+  }
+  .flame-main.two {
+    animation-duration: 2s;
+    animation-delay: 1s;
+  }
+  .flame-main.three {
+    animation-duration: 2.1s;
+    animation-delay: 3s;
+  }
+  .flame-main.four {
+    animation-duration: 3.2s;
+    animation-delay: 4s;
+  }
+  .flame-main.five {
+    animation-duration: 2.5s;
+    animation-delay: 5s;
+  }
+  @keyframes flameMovement {
+    50% {
+      transform: scale(0.98,1.0) translate(0, 2px) rotate(-1deg);
+    }
+  }
+  @keyframes flameDisappear {
+    0%{
+      transform: translate(0) rotate(180deg);
+    }
+    50% {
+       opacity: 1;
+    }
+    100% {
+      transform: translate(-10px, -40px) rotate(180deg);
+      opacity: 0;
+    }
+}
+@keyframes lineAnime {
+    0%
+    {
+        width: 0
+    }
+    50%{
+        width: 15%;
+    }
+    100%
+    {
+        width: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .mo-fire{
+        right: -8.5%;
+        bottom: -10px;
+    }
+}

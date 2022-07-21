@@ -180,6 +180,12 @@ let zoomMenuStayKey = [];
 let menuCountriesItem = document.getElementById('country-item');
 let zoomMenu = document.getElementById('zoom-menu');
 let zoomMenuItems = document.querySelectorAll('#zoom-menu-list li');
+let icelandOption = document.querySelectorAll('.zoom-menu-links')[3];
+
+icelandOption.addEventListener('click', () => {
+
+    location.assign('Iceland.html');
+});
 
 menuCountriesItem.addEventListener('mouseover', () => {
     zoomMenu.style.display = 'initial';

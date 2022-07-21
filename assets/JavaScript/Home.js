@@ -10,6 +10,7 @@ let downArrowContainer = document.getElementById('down-arrow-container');
 let countriesSliderMenuLink = document.getElementById('countries-slider-menu-link');
 let sliderZoomMenu = document.getElementById('sliderMenuZoomMenuContainer');
 let bali = document.getElementById('Bali');
+let iceland = document.getElementById('Iceland');
 let openKey = false;
 
 openButton.addEventListener('click', () => {
@@ -27,8 +28,13 @@ openButton.addEventListener('click', () => {
         openKey = false;
     }
 });
+//Image slider menu pictures link navigating
+
 bali.addEventListener('click', () => {
     location.assign('Bali.html');
+});
+iceland.addEventListener('click', () => {
+    location.assign('Iceland.html');
 });
 //Zoom menu opening and closing
 

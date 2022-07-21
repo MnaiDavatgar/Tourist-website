@@ -1,0 +1,248 @@
+/* ============================== Google Fonts ================================== */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amatic+SC&family=Fredoka+One&family=Neonderthaw&family=Pacifico&family=Rowdies:wght@700&display=swap');
+/* ================== Css Variables ===================== */
+:root{
+    /* =============== Colors ================ */
+    --button-color: hsl(9, 100%, 64%);
+    --button-hover-color: hsl(9, 100%, 44%);
+    --text-hover-color: hsl(0, 0%, 56%); 
+    /*==================== Font Families ================== */
+    --h1-font: 'Neonderthaw', cursive;
+    --text-font: 'Open Sans Condensed', sans-serif;
+    --low-weight-font: 'Amatic SC', cursive;
+    --puffy-font: 'Fredoka One', cursive;
+    /* ====================== Font Sizes ======================= */
+    --h1-font-size: 4rem;
+    --h2-font-size: 3.5rem;
+    --text-font-size: 1rem;
+    --countries-header-font-size: 4rem;
+    /* ====================== Font weights ===================== */
+    --bold: 900;
+    --semi-bold: 700;
+    --thin: 500;
+    /* ======================== Z-indexes ====================== */
+    --absolute-z-index: 10;
+    /* ===================== Margin Bottom ====================== */
+    --m-b: 3rem;
+    /* ============================ Header Height =========================== */
+    --header-height: 120px;
+}
+@media screen and (max-width: 400px) {
+    :root{
+        --countries-header-font-size: 3rem;
+    }
+}
+@media screen and (min-width: 600px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 5rem;
+        --h2-font-size: 4rem;
+        --text-font-size: 1.25rem;       
+    }
+}
+@media screen and (min-width: 1840px) {
+    :root{
+        /* ================ Typography =============== */
+        --h1-font-size: 6rem;
+        --h2-font-size: 4.5rem;
+        --text-font-size: 2rem;
+        /* ================ Margin Bottom =============== */
+        --m-b: 5.5rem;
+    }
+}
+/* ============================ Basics =============================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html::-webkit-scrollbar{
+    width: .75rem;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: var(--button-color);
+}
+html::-webkit-scrollbar-thumb:hover{
+    background-color: var(--button-hover-color);
+}
+body{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+    ),
+    url(../pictures/Japan.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    font-size: var(--text-font-size);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    display: inline-block;
+    font-size: var(--h1-font-size);
+    font-family: var(--h1-font);
+    font-weight: var(--bold);
+}
+p, h2{
+    font-family: var(--text-font);
+    color: #000;
+}
+h2{
+    font-size: var(--h2-font-size);
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+ul{
+    list-style: none;
+}
+button{
+    background-color: var(--button-color);
+}
+/* ====================== Reusable Classes ====================== */
+.section{
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--m-b);
+}
+/* ============================== Navigation Bar ============================= */
+header{
+    width: 100%;
+    height: var(--header-height);
+    background-color: transparent;
+    border: 5px solid tomato;
+    border-radius: 0 0 20px 20px;
+}
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 0 0 20px 20px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+    ),
+    url(../pictures/Japan.jpeg);
+    background-position: top;
+}
+#home-container{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid none solid solid;
+    border-width: 2px;
+    border-color: hsl(285, 100%, 32%);
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    transition: .2s;
+    transition-delay: 1.5s;
+}
+#home-container:hover{
+    background-color: #fff;
+}
+#home-container p{
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 500;
+    transition: 1s;
+}
+#home-red-circle{
+    width: 50px;
+    height: 50px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    transition: 2s;
+    background-color: #f00;
+    position: relative;
+}
+#inner-red-circle{
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: #f00;
+    position: absolute;
+}
+.sunlights{
+    --rotate: 0deg;
+    width: 2px;
+    height: 0px;
+    position: absolute;
+    top: -24px;
+    left: 24px;
+    background-color: #ff0;
+    box-shadow: 0 0 5px hsl(285, 100%, 32%),
+    0 0 15px hsl(285, 100%, 32%);
+    transition: 2s;
+    transition-delay: .35s;
+    transform: rotate(var(--rotate));
+    transform-origin: bottom;
+}
+#menu-container{
+    width: 75%;
+    height: 100%;
+    border-style: solid solid solid none;
+    border-width: 2px;
+    border-color: hsl(285, 100%, 32%);
+    border-bottom-right-radius: 20px;
+}
+#menu-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#menu-list li{
+    text-shadow: 0 0 5px #00f,
+    0 0 15px #00f;
+    font-family: var(--low-weight-font);
+    font-weight: var(--bold);
+    font-size: 2rem;
+}
+.menu-link{
+    color: hsl(285, 100%, 60%);
+    font-size: 2.7rem;
+    transition: text-shadow 1s;
+}
+#menu-list li:hover{
+    transition: .5s;
+    text-shadow: none;
+}
+#menu-list li:hover a{
+    color: #fff;
+    text-shadow: 0 0 5px #ff0,
+    0 0 15px #ff0;
+}
+/* ================================= Main ============================= */
+main{
+    width: 100%;
+    height: auto;
+}
+#visit-japan-container{
+    width: 100%;
+    height: 500px;
+    padding: 3rem 0 0 4rem;
+}
+#visit-japan-text-container{
+    width: 30%;
+    height: auto;
+}
+#visit-japan-text-container > *{
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+#visit-japan-text-container h1{
+    font-family: var(--puffy-font);
+    text-transform: uppercase;
+    font-size: 7rem;
+    margin-bottom: 3rem;
+}

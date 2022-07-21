@@ -362,6 +362,10 @@ main::-webkit-scrollbar-thumb{
     position: relative;
     overflow: hidden;
 }
+#diving-heading{
+    animation-name: example;
+    animation-duration: 1s;
+}
 .bubbles{
     width: 70px;
     height: 70px;
@@ -426,6 +430,10 @@ main::-webkit-scrollbar-thumb{
 #tour-box a:hover{
     color: #000;
     text-decoration: none;
+}
+#bali-last-text{
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 /* ======================== Footer ======================== */
 footer{
@@ -618,36 +626,8 @@ footer{
     }
 }
 @keyframes gradientAnimation {
-    0%
+    to
     {
-        background-image: linear-gradient(90deg, #8e2de2, #4a00e0);
-    }
-    12.5%
-    {
-        background-image: linear-gradient(90deg, #b92b27, #1565C0);
-    }
-    25%
-    {
-        background-image: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-    }
-    37.5%
-    {
-        background-image: linear-gradient(90deg, #bdc3c7, #2c3e50);
-    }
-    50%
-    {
-        background-image: linear-gradient(90deg, #bdc3c7, #2c3e50);
-    }
-    62.5%
-    {
-        background-image: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-    }
-    75%
-    {
-        background-image: linear-gradient(90deg, #b92b27, #1565C0);
-    }
-    100%
-    {
-        background-image: linear-gradient(90deg, #8e2de2, #4a00e0);
+        filter: hue-rotate(360deg);
     }
 }
